@@ -1,72 +1,208 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Healthcare Insurance Cost Analysis – Advanced Data Analytics Capstone
+Project Overview
 
-## Template Instructions
+This project presents an end to end data analytics solution analysing healthcare insurance costs using statistical analysis, hypothesis testing, and supervised machine learning. The objective is to understand how personal attributes such as age, BMI, smoking status, number of children, and region influence medical insurance charges.
 
-Welcome,
+The project integrates Python based exploratory data analysis with an interactive Streamlit dashboard and is deployed using Heroku.
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+Dataset
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+Healthcare Insurance Dataset
+Authors: Willian Oliveira and Arun Jangir
+Source: https://www.kaggle.com/datasets/willianoliveiragibin/healthcare-insurance
 
-## How to use this repo
+The dataset contains demographic and lifestyle attributes alongside insurance charges. These variables are used to investigate cost drivers and build a predictive model.
 
-1. Use this template to create your GitHub project repo. Click the **Use this template** button, then click **Create a new repository**.
+Business Objective
 
-1. Copy the URL of your repository to your clipboard.
+The primary analytical objective is to:
 
-1. In VS Code, select **File** -> **Open Folder**.
+Identify factors that significantly influence healthcare insurance charges
 
-1. Select your `vscode-projects` folder, then click the **Select Folder** button on Windows, or the **Open** button on Mac.
+Statistically test whether smokers incur higher insurance costs
 
-1. From the top menu in VS Code, select **Terminal** > **New Terminal** to open the terminal.
+Build a predictive model to estimate insurance charges
 
-1. In the terminal, type `git clone` followed by the URL of your GitHub repository. Then hit **Enter**. This command will download all the files in your GitHub repository into your vscode-projects folder.
+Deliver an interactive dashboard for stakeholders
 
-1. In VS Code, select **File** > **Open Folder** again.
+ETL Pipeline
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
+An Extract, Transform, Load approach was implemented:
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
+Extract
 
-1. In the command palette, type: *create environment* and select **Python: Create Environment…**
+The dataset was loaded from a CSV file using pandas.
 
-1. Choose **Venv** from the dropdown list.
+Transform
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+Data preprocessing included:
 
-1. **DO NOT** click the box next to `requirements.txt`, as you need to do more steps before you can install your dependencies. Click **OK**.
+Checking for missing values
 
-1. You will see a `.venv` folder appear in the file explorer pane to show that the virtual environment has been created.
+Encoding categorical variables using one hot encoding
 
-1. **Important**: Note that the `.venv` folder is in the `.gitignore` file so that Git won't track it.
+Preparing feature variables for modelling
 
-1. Return to the terminal by clicking on the TERMINAL tab, or click on the **Terminal** menu and choose **New Terminal** if no terminal is currently open.
+Load
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
+The cleaned and transformed dataset was stored in memory for analysis and modelling.
 
- ```console
- pip3 install -r requirements.txt
- ```
+Exploratory Data Analysis
 
-1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
+Descriptive statistical analysis was conducted using:
 
-1. Click the **kernel** button and choose **Python Environments**.
+Mean
 
-Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it will be Python-3.12.8 if that is what is installed on your PC. To confirm this, you can use the command below in a notebook code cell.
+Median
 
-```console
-! python --version
-```
+Standard deviation
 
-## Deployment Reminders
+Distribution plots
 
-* Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version that closest matches what you used in this project.
-* The project can be deployed to Heroku using the following steps.
+Correlation analysis
 
-1. Log in to Heroku and create an App
-2. At the **Deploy** tab, select **GitHub** as the deployment method.
-3. Select your repository name and click **Search**. Once it is found, click **Connect**.
-4. Select the branch you want to deploy, then click **Deploy Branch**.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+Grouped comparisons
+
+Key findings include:
+
+Insurance charges are positively skewed
+
+Smokers incur significantly higher average costs
+
+Age and BMI show moderate positive relationships with charges
+
+Hypothesis Testing
+
+A two sample t test was conducted to compare insurance charges between smokers and non smokers.
+
+The results demonstrated a statistically significant difference in mean charges between the two groups, supporting the hypothesis that smoking status impacts insurance costs.
+
+Machine Learning Implementation
+
+A supervised machine learning approach was applied using Linear Regression from scikit-learn.
+
+Steps included:
+
+Feature and target variable definition
+
+Train test split
+
+Model training
+
+Model evaluation
+
+Saving the trained model using joblib
+
+Evaluation metrics included:
+
+Mean Absolute Error
+
+Mean Squared Error
+
+Root Mean Squared Error
+
+R² Score
+
+The model demonstrates strong predictive capability in estimating insurance charges based on demographic and behavioural attributes.
+
+This supervised implementation satisfies the requirement to apply an appropriate predictive algorithm to address a defined analytical problem.
+
+Dashboard Implementation
+
+An interactive Streamlit dashboard was developed to:
+
+Visualise insurance charge distributions
+
+Display smoker vs non smoker comparisons
+
+Present correlation insights
+
+Provide interactive filtering
+
+Deliver dynamic visualisations using Plotly and Seaborn
+
+The dashboard enables stakeholders to explore insurance cost drivers in a user friendly interface.
+
+Technologies Used
+
+Python
+
+Pandas
+
+NumPy
+
+Matplotlib
+
+Seaborn
+
+Plotly
+
+Scikit-learn
+
+Joblib
+
+Streamlit
+
+Git and GitHub
+
+Heroku
+
+AI Usage Declaration
+
+Generative AI tools including ChatGPT and GitHub Copilot were used as support tools throughout the project.
+
+AI assistance was used for:
+
+Concept clarification
+
+Debugging support
+
+Code refinement suggestions
+
+Structuring documentation
+
+Improving clarity of explanations
+
+All modelling decisions, statistical interpretations, analytical reasoning, and final implementation choices were independently reviewed and validated to ensure academic integrity and alignment with project requirements.
+
+Project Structure
+
+Healthcare Insurance Cost Analysis
+│
+├── app.py
+├── multi_page.py
+├── dashboard.py
+├── models/
+│ └── insurance_model.pkl
+├── Jupyter_Notebooks/
+│ └── 01_ExploratoryDataAnalysis.ipynb
+├── requirements.txt
+├── Procfile
+├── runtime.txt
+└── README.md
+
+Deployment
+
+The project is deployed using Heroku.
+
+To run locally:
+
+streamlit run app.py
+
+Reflection
+
+This project strengthened understanding of:
+
+Statistical inference
+
+Hypothesis testing
+
+Supervised machine learning
+
+Model evaluation
+
+Dashboard development
+
+Deployment workflows
+
+It provided practical experience integrating analytics tools into a structured, professional data application.
